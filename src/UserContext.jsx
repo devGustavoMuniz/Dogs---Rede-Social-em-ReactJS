@@ -1,5 +1,5 @@
 import React from "react";
-import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./api";
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./Api";
 import { useNavigate } from "react-router-dom";
 
 export const UserContext = React.createContext();
@@ -51,7 +51,7 @@ export const UserStorage = ({ children }) => {
   }
 
   React.useEffect(() => {
-    async function autoLogin() {
+    const autoLogin = async () => {
       const token = window.localStorage.getItem("token");
       if (token) {
         try {
@@ -67,7 +67,7 @@ export const UserStorage = ({ children }) => {
           setLoading(false);
         }
       }
-    }
+    };
     autoLogin();
   }, [userLogout]);
 
