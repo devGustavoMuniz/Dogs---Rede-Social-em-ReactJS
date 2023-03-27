@@ -4,6 +4,7 @@ import Button from "../Forms/Button";
 import useForm from "../../Hooks/useForm";
 import useFetch from "../../Hooks/useFetch";
 import { PASSWORD_RESET } from "../../Api";
+import Error from "../Helper/Error";
 import { useNavigate } from "react-router-dom";
 
 const LoginPasswordReset = () => {
@@ -30,7 +31,7 @@ const LoginPasswordReset = () => {
         password: password.value,
       });
       const { response } = await request(url, options);
-      if (response.ok) navigate("login");
+      if (response.ok) navigate("/login");
     }
   }
 
